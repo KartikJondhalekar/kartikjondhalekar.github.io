@@ -43,14 +43,14 @@ export default function About() {
             <p className="text-lg text-text-secondary leading-relaxed">
               {profile.bio}
             </p>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               {/* Current Focus */}
               <div className="p-6 bg-background border border-border rounded-xl">
                 <h3 className="font-display text-lg font-bold mb-3 text-primary">Currently</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Recent M.S. in Computer Science graduate from Northeastern University (GPA: {education.gpa}), 
-                  completed {education.graduationDate}. Actively seeking full-time opportunities in Software Development/Engineering, 
+                  Recent M.S. in Computer Science graduate from Northeastern University (GPA: {education.gpa}),
+                  completed {education.graduationDate}. Actively seeking full-time opportunities in Software Development/Engineering,
                   Full-Stack Development, Backend/Frontend Engineering, and Web/App Development roles.
                 </p>
               </div>
@@ -59,8 +59,8 @@ export default function About() {
               <div className="p-6 bg-background border border-border rounded-xl">
                 <h3 className="font-display text-lg font-bold mb-3 text-primary">Technical Interests</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Distributed systems design, cloud-native architecture, API design, 
-                  observability and reliability engineering, developer experience, and 
+                  Distributed systems design, cloud-native architecture, API design,
+                  observability and reliability engineering, developer experience, and
                   building tools that improve engineering velocity.
                 </p>
               </div>

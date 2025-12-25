@@ -21,7 +21,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('all');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  
+
   const data = contentData as ContentData;
 
   useEffect(() => {
@@ -43,8 +43,8 @@ export default function Projects() {
 
   // Filter projects by category
   const visibleProjects = data.projects.filter((p: Project) => p.visible);
-  const filteredProjects = activeCategory === 'all' 
-    ? visibleProjects 
+  const filteredProjects = activeCategory === 'all'
+    ? visibleProjects
     : visibleProjects.filter((p: Project) => p.category === activeCategory);
 
   return (
@@ -63,7 +63,7 @@ export default function Projects() {
             Projects that show how I think
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mb-8">
-            Each project includes the problem context, technical decisions, trade-offs made, 
+            Each project includes the problem context, technical decisions, trade-offs made,
             and what I&apos;d improve next. Click any project for a deep-dive.
           </p>
 
@@ -73,11 +73,10 @@ export default function Projects() {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-lg font-mono text-sm transition-all ${
-                  activeCategory === category.id
-                    ? 'bg-accent text-background'
-                    : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
-                }`}
+                className={`px-4 py-2 rounded-lg font-mono text-sm transition-all ${activeCategory === category.id
+                  ? 'bg-accent text-background'
+                  : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
+                  }`}
               >
                 {category.label}
                 {category.id === 'all' && (
@@ -100,7 +99,7 @@ export default function Projects() {
               key={project.id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
                 transition: { duration: 0.2 }
               }}
@@ -300,16 +299,33 @@ export default function Projects() {
                   {/* Links */}
                   <div className="flex flex-wrap gap-3">
                     {selectedProject.github && (
-                      <a
-                        href={selectedProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => trackExternalLink('github', selectedProject.id)}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg hover:border-accent transition-colors font-mono text-sm"
-                      >
-                        <Github size={16} />
-                        View Code
-                      </a>
+                      <>
+                        {Array.isArray(selectedProject.github) ? (
+                          selectedProject.github.map((link: string, idx: number) => (
+                            <a
+                              key={idx}
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackExternalLink('github', selectedProject.id)}
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg hover:border-accent transition-colors font-mono text-sm"
+                            >
+                              <Github size={16} />
+                              {(Array.isArray(selectedProject.github) && selectedProject.github.length > 1) ? `Repository ${idx + 1}` : 'View Code'}                            </a>
+                          ))
+                        ) : (
+                          <a
+                            href={selectedProject.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackExternalLink('github', selectedProject.id)}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg hover:border-accent transition-colors font-mono text-sm"
+                          >
+                            <Github size={16} />
+                            View Code
+                          </a>
+                        )}
+                      </>
                     )}
                     {selectedProject.demo && (
                       <a
@@ -317,7 +333,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => trackExternalLink('demo', selectedProject.id)}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors font-mono text-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors font-mono text-sm"
                       >
                         <ExternalLink size={16} />
                         Live Demo

@@ -4,14 +4,14 @@ import './globals.css';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const rajdhani = Rajdhani({ 
+const rajdhani = Rajdhani({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const orbitron = Orbitron({ 
+const orbitron = Orbitron({
   weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-display',
@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >

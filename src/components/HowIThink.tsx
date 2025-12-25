@@ -11,7 +11,7 @@ export default function HowIThink() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  
+
   const data = contentData as ContentData;
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function HowIThink() {
             {data.mindset.title}
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl">
-            Engineering isn&apos;t just about writing code. It&apos;s about making informed decisions 
+            Engineering isn&apos;t just about writing code. It&apos;s about making informed decisions
             under constraints, debugging complex systems, and balancing speed with quality.
           </p>
         </div>
@@ -114,9 +114,9 @@ export default function HowIThink() {
           className="mt-12 p-6 bg-background border border-border rounded-2xl"
         >
           <p className="text-text-secondary leading-relaxed">
-            <span className="font-display font-bold text-text">Note:</span> These aren&apos;t rigid rules—they&apos;re 
-            heuristics that have worked well across different systems and teams. The specifics change based on 
-            context, but the underlying principles stay consistent: understand the constraints, make informed 
+            <span className="font-display font-bold text-text">Note:</span> These aren&apos;t rigid rules—they&apos;re
+            heuristics that have worked well across different systems and teams. The specifics change based on
+            context, but the underlying principles stay consistent: understand the constraints, make informed
             trade-offs, and optimize for long-term maintainability.
           </p>
         </motion.div>

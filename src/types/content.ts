@@ -44,7 +44,7 @@ export interface Project {
   category: string;
   tier: number;
   visible: boolean;
-  github: string | null;
+  github: string | string[] | null;
   demo: string | null;
   summary: string;
   problem: string;

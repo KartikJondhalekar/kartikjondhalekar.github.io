@@ -36,8 +36,8 @@ class Analytics {
 
   constructor() {
     // Only enable in production
-    this.isEnabled = typeof window !== 'undefined' && 
-                     process.env.NODE_ENV === 'production';
+    this.isEnabled = typeof window !== 'undefined' &&
+      process.env.NODE_ENV === 'production';
   }
 
   /**
@@ -89,7 +89,7 @@ export const trackProjectDeepDive = (projectId: string) => {
 };
 
 export const trackExternalLink = (type: 'github' | 'demo' | 'linkedin' | 'email', project?: string) => {
-  analytics.trackEvent('external_link_clicked', { 
+  analytics.trackEvent('external_link_clicked', {
     link_type: type,
     ...(project && { project })
   });

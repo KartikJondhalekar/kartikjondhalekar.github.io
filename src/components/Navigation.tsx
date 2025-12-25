@@ -57,11 +57,10 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm' 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -79,17 +78,15 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`font-mono text-sm transition-colors relative group ${
-                  activeSection === item.id
+                className={`font-mono text-sm transition-colors relative group ${activeSection === item.id
                     ? 'text-accent'
                     : 'text-text-secondary hover:text-text'
-                }`}
+                  }`}
               >
                 {item.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
-                    activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                 />
               </button>
             ))}
@@ -121,11 +118,10 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left py-3 font-mono text-sm transition-colors ${
-                  activeSection === item.id
+                className={`block w-full text-left py-3 font-mono text-sm transition-colors ${activeSection === item.id
                     ? 'text-accent'
                     : 'text-text-secondary hover:text-text'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>

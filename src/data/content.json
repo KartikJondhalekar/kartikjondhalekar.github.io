@@ -70,7 +70,15 @@
       "id": "inventory-management",
       "title": "Inventory Management Tool",
       "subtitle": "Enterprise-grade platform modernized for scale, reliability, and cost efficiency",
-      "technologies": [".NET Framework", ".NET 6", "Angular 12", "Angular 15", "Entity Framework", "Azure SQL", "Azure"],
+      "technologies": [
+        ".NET Framework",
+        ".NET 6",
+        "Angular 12",
+        "Angular 15",
+        "Entity Framework",
+        "Azure SQL",
+        "Azure"
+      ],
       "domain": "Enterprise · Cloud · Backend",
       "category": "enterprise",
       "tier": 1,
@@ -131,7 +139,12 @@
       "id": "accrual-management",
       "title": "Accrual Management System",
       "subtitle": "Finance platform modernized to improve forecasting accuracy and operational visibility",
-      "technologies": [".NET Framework", "Angular 12", "MS SQL Server", "Azure Data Factory"],
+      "technologies": [
+        ".NET Framework",
+        "Angular 12",
+        "MS SQL Server",
+        "Azure Data Factory"
+      ],
       "domain": "Enterprise · Finance · Data",
       "category": "enterprise",
       "tier": 1,
@@ -192,12 +205,20 @@
       "id": "ask-chinook",
       "title": "Ask Chinook",
       "subtitle": "Natural language to SQL system with safety-first AI execution",
-      "technologies": ["TypeScript", "React", "Node.js", "Express", "OpenAI", "LangChain", "LangSmith"],
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "Express",
+        "OpenAI",
+        "LangChain",
+        "LangSmith"
+      ],
       "domain": "AI · Developer Tools · Data Access",
       "category": "ai",
       "tier": 1,
       "visible": true,
-      "github": "https://github.com/KartikJondhalekar/ask-chinook",
+      "github": "https://github.com/KartikJondhalekar/Ask-Chinook",
       "demo": null,
       "summary": "AI-powered SQL generation with enforced read-only execution, demonstrating production-grade LLM safety patterns.",
       "problem": "Non-technical users struggled to query relational databases safely and efficiently without SQL expertise.",
@@ -253,12 +274,19 @@
       "id": "f1-gpt",
       "title": "F1-GPT",
       "subtitle": "AI-powered Formula 1 knowledge system using Retrieval Augmented Generation",
-      "technologies": ["TypeScript", "React", "OpenAI", "Vector DB", "RAG", "TailwindCSS"],
+      "technologies": [
+        "TypeScript",
+        "React",
+        "OpenAI",
+        "Vector DB",
+        "RAG",
+        "TailwindCSS"
+      ],
       "domain": "AI · LLM · Full-Stack",
       "category": "ai",
       "tier": 1,
       "visible": true,
-      "github": "https://github.com/KartikJondhalekar",
+      "github": "https://github.com/KartikJondhalekar/F1-GPT",
       "demo": null,
       "summary": "Conversational AI system using RAG to ground LLM responses in authoritative Formula 1 data, reducing hallucinations.",
       "problem": "Static content and search-based systems failed to deliver real-time, context-aware Formula 1 insights.",
@@ -314,12 +342,23 @@
       "id": "event-rsvp",
       "title": "Event RSVP Platform",
       "subtitle": "Fully serverless event management application on AWS",
-      "technologies": ["HTML", "CSS", "JavaScript", "Node.js", "AWS Lambda", "API Gateway", "RDS", "DynamoDB", "S3", "CloudFront"],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "AWS Lambda",
+        "API Gateway",
+        "RDS",
+        "DynamoDB",
+        "S3",
+        "CloudFront"
+      ],
       "domain": "Cloud · Serverless · Full-Stack",
       "category": "cloud",
       "tier": 1,
       "visible": true,
-      "github": "https://github.com/KartikJondhalekar",
+      "github": "https://github.com/KartikJondhalekar/Event-RSVP-app",
       "demo": null,
       "summary": "Cloud-native event system demonstrating AWS serverless architecture and infrastructure-as-code patterns.",
       "problem": "Traditional server-based event systems were costly to scale and maintain for variable traffic patterns.",
@@ -375,7 +414,14 @@
       "id": "epayslip",
       "title": "ePayslip System",
       "subtitle": "Secure payroll platform optimized by removing legacy reporting dependencies",
-      "technologies": [".NET WebForms", ".NET 6", "Angular 15", "Azure", "MSAL", "Crystal Reports"],
+      "technologies": [
+        ".NET WebForms",
+        ".NET 6",
+        "Angular 15",
+        "Azure",
+        "MSAL",
+        "Crystal Reports"
+      ],
       "domain": "Enterprise · Security · Cost Optimization",
       "category": "enterprise",
       "tier": 2,
@@ -436,7 +482,10 @@
       "id": "data-quality",
       "title": "Data Quality Tool",
       "subtitle": "Enterprise platform for improving data integrity and compliance readiness",
-      "technologies": [".NET MVC", "MS SQL Server"],
+      "technologies": [
+        ".NET MVC",
+        "MS SQL Server"
+      ],
       "domain": "Enterprise · Compliance · Backend",
       "category": "enterprise",
       "tier": 2,
@@ -497,7 +546,12 @@
       "id": "kanbas-lms",
       "title": "Kanbas LMS",
       "subtitle": "Learning Management System inspired by Canvas",
-      "technologies": ["React", "Node.js", "Express", "MongoDB"],
+      "technologies": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
       "domain": "Full-Stack · Web Applications",
       "category": "fullstack",
       "tier": 2,
@@ -561,42 +615,63 @@
         "id": "phone-tracking",
         "title": "Phone Tracking System",
         "summary": "Asset management platform for tracking enterprise mobile devices across departments.",
-        "technologies": [".NET WebForms", "Azure"],
+        "technologies": [
+          ".NET WebForms",
+          "Azure"
+        ],
         "category": "enterprise"
       },
       {
         "id": "vessel-performance",
         "title": "Vessel Performance System",
         "summary": "Maritime operations platform for monitoring vessel efficiency and fuel consumption.",
-        "technologies": ["VB.NET", "Azure", "MS SQL Server"],
+        "technologies": [
+          "VB.NET",
+          "Azure",
+          "MS SQL Server"
+        ],
         "category": "enterprise"
       },
       {
         "id": "partner-approval",
         "title": "Partner Approval System",
         "summary": "Workflow automation for partner vetting and approval processes.",
-        "technologies": [".NET MVC", "MS SQL Server"],
+        "technologies": [
+          ".NET MVC",
+          "MS SQL Server"
+        ],
         "category": "enterprise"
       },
       {
         "id": "overtime-approval",
         "title": "Overtime Pre-Approval System",
         "summary": "HR workflow tool for managing overtime requests and approvals.",
-        "technologies": [".NET Framework", "AngularJS", "MS SQL Server"],
+        "technologies": [
+          ".NET Framework",
+          "AngularJS",
+          "MS SQL Server"
+        ],
         "category": "enterprise"
       },
       {
         "id": "iems-exception",
         "title": "IEMS Exception Management",
         "summary": "Exception handling system for integrated energy management workflows.",
-        "technologies": [".NET WebForms", "Oracle DB"],
+        "technologies": [
+          ".NET WebForms",
+          "Oracle DB"
+        ],
         "category": "enterprise"
       },
       {
         "id": "home-loan",
         "title": "Hom-e-loan",
         "summary": "Home loan application processing and management system.",
-        "technologies": [".NET Core", "Angular 13", "SQL Server"],
+        "technologies": [
+          ".NET Core",
+          "Angular 13",
+          "SQL Server"
+        ],
         "category": "enterprise"
       }
     ],
@@ -605,21 +680,32 @@
         "id": "cardbuddy",
         "title": "CardBuddy",
         "summary": "Android app for managing credit card benefits and rewards tracking.",
-        "technologies": ["Android Studio", "Java", "Firebase"],
+        "technologies": [
+          "Android Studio",
+          "Java",
+          "Firebase"
+        ],
         "category": "mobile"
       },
       {
         "id": "olympedia",
         "title": "Olympedia",
         "summary": "Database-driven Olympics statistics platform with complex query optimization.",
-        "technologies": ["Python", "MySQL"],
-        "category": "data"
+        "technologies": [
+          "Python",
+          "MySQL"
+        ],
+        "category": "data",
+        "github": "https://github.com/KartikJondhalekar/Olympedia"
       },
       {
         "id": "open-library",
         "title": "Open Library Knowledge Miner",
         "summary": "ML-powered system for extracting insights from Open Library book metadata.",
-        "technologies": ["Python", "Machine Learning"],
+        "technologies": [
+          "Python",
+          "Machine Learning"
+        ],
         "category": "ai"
       }
     ]
@@ -636,6 +722,18 @@
         "Improved release stability by 30% through containerization and observability practices",
         "Cut MTTR by 20% using structured logging and distributed tracing",
         "Reduced security audit findings by 45% via RBAC and MSAL SSO implementation"
+      ]
+    },
+    {
+      "company": "LTIMindtree",
+      "role": "Graduate Engineer Trainee",
+      "period": "Jan 2021 – Jun 2021",
+      "location": "Mumbai, India",
+      "impact": [
+        "Resolved critical defects in .NET and SQL modules, improving functional correctness through rigorous peer reviews and regression testing",
+        "Assisted with test execution and debugging across multiple enterprise systems, strengthening foundations in object-oriented programming and secure coding practices",
+        "Collaborated with senior engineers on production support, gaining hands-on experience in enterprise software maintenance",
+        "Participated in code reviews and design discussions, building knowledge in maintainable design patterns and software architecture"
       ]
     }
   ],

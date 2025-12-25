@@ -9,7 +9,7 @@ import { trackSectionView } from '@/lib/analytics';
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  
+
   const data = contentData as ContentData;
 
   useEffect(() => {

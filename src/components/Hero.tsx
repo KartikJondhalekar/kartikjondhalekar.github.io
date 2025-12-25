@@ -59,7 +59,7 @@ export default function Hero() {
           ease: 'easeInOut',
         }}
         className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl"
-        style={{ 
+        style={{
           background: 'radial-gradient(circle, #38BDF8, #22D3EE)',
           mixBlendMode: 'screen',
         }}
@@ -77,7 +77,7 @@ export default function Hero() {
           ease: 'easeInOut',
         }}
         className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full filter blur-3xl"
-        style={{ 
+        style={{
           background: 'radial-gradient(circle, #6366F1, #38BDF8)',
           mixBlendMode: 'screen',
         }}

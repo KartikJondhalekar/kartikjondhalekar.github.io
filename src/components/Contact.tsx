@@ -11,7 +11,7 @@ export default function Contact() {
   const [emailCopied, setEmailCopied] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  
+
   const data = contentData as ContentData;
 
   useEffect(() => {
@@ -59,11 +59,11 @@ export default function Contact() {
             Get in Touch
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-             Let&apos;s build something together
+            Let&apos;s build something together
           </h2>
           <p className="text-lg text-text-secondary">
-            Recent M.S. in Computer Science graduate actively seeking full-time opportunities in 
-            Software Development/Engineering, Full-Stack Development, Backend/Frontend Engineering, 
+            Recent M.S. in Computer Science graduate actively seeking full-time opportunities in
+            Software Development/Engineering, Full-Stack Development, Backend/Frontend Engineering,
             and Web/App Development. Open to relocation.
           </p>
         </div>
@@ -90,7 +90,7 @@ export default function Contact() {
               ) : (
                 <Copy className="text-text-secondary group-hover:text-accent transition-colors" size={20} />
               )}
-              
+
               {/* Tooltip */}
               <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-background text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 {emailCopied ? 'Copied!' : 'Copy email'}
