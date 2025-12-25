@@ -3,8 +3,8 @@
     "name": "Kartik Jayram Jondhalekar",
     "title": "Full-Stack Software Engineer",
     "location": "Boston, MA",
-    "tagline": "Building reliable systems that scale. Ready to ship features that matter.",
-    "bio": "I believe good engineering is about making informed trade-offs—optimizing for performance and reliability without losing delivery velocity. I recently completed my M.S. in CS at Northeastern, with hands-on experience modernizing enterprise systems and building cloud/AI-driven applications. Open to full-time Software / Frontend / Full-stack roles.",
+    "tagline": "Building responsive UIs and scalable backend systems that users feel.",
+    "bio": "Full-Stack Engineer with experience building enterprise systems at Chevron and modern web applications using React, TypeScript, Node, and .NET. I enjoy designing clean UI interactions, scalable backend APIs, and shipping features that users feel—not just infrastructure that runs. M.S. in Computer Science @ Northeastern (3.85 GPA), seeking full-time Full-Stack and Front-End roles.",
     "contact": {
       "email": "jondhalekar.k@northeastern.edu",
       "phone": "(857) 294-5334",
@@ -66,6 +66,284 @@
     ]
   },
   "projects": [
+    {
+      "id": "ask-chinook",
+      "title": "Ask Chinook",
+      "subtitle": "Natural language to SQL system with safety-first AI execution",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "Express",
+        "OpenAI",
+        "LangChain",
+        "LangSmith"
+      ],
+      "domain": "AI · Developer Tools · Data Access",
+      "category": "ai",
+      "tier": 1,
+      "visible": true,
+      "github": "https://github.com/KartikJondhalekar/Ask-Chinook",
+      "demo": null,
+      "summary": "Built intuitive chat interface for natural language SQL queries with real-time results and enforced read-only execution. Demonstrates production-grade LLM safety patterns with clean UI.",
+      "problem": "Non-technical users struggled to query relational databases safely and efficiently without SQL expertise.",
+      "constraints": [
+        "Strict read-only database access (no mutations)",
+        "Preventing unsafe or destructive queries",
+        "AI observability and reliability",
+        "Low latency for interactive queries"
+      ],
+      "decisions": [
+        {
+          "decision": "Enforce SELECT-only execution at execution layer",
+          "rationale": "Security by design, not by prompt engineering. Even if LLM generates DROP or UPDATE, execution layer blocks it."
+        },
+        {
+          "decision": "Server-side API key handling",
+          "rationale": "API keys never touch client. Reduces attack surface and prevents key leakage in browser dev tools."
+        },
+        {
+          "decision": "Integrated LangSmith for observability",
+          "rationale": "LLM failures are opaque. LangSmith provides latency metrics, token usage, and prompt/response pairs for debugging."
+        },
+        {
+          "decision": "Used LangChain for prompt management",
+          "rationale": "Keeps prompt logic modular and testable. Easier to iterate on prompt structure without redeploying."
+        }
+      ],
+      "outcomes": [
+        "Enabled safe self-service data access for non-technical users",
+        "Improved query turnaround time by eliminating SQL writing bottleneck",
+        "Demonstrated production-grade AI safety patterns",
+        "Provided full observability into LLM behavior"
+      ],
+      "improvements": [
+        "Add query result caching to reduce redundant LLM calls",
+        "Implement feedback loop (user marks correct/incorrect results)",
+        "Support multi-turn conversations for query refinement",
+        "Add schema-aware context to improve query accuracy"
+      ],
+      "architecture": {
+        "overview": "Three-tier architecture with validation layer between LLM and database execution.",
+        "components": [
+          "Frontend: React + TypeScript for query input and results",
+          "API Layer: Express server handling LLM calls and SQL execution",
+          "Validation Layer: Query parser blocking non-SELECT operations",
+          "LangChain: Prompt construction and LLM orchestration",
+          "LangSmith: Observability, tracing, and debugging"
+        ],
+        "dataFlow": "User query → API → LangChain → OpenAI → SQL generation → Validation → Execution → Results → Frontend"
+      }
+    },
+    {
+      "id": "f1-gpt",
+      "title": "F1-GPT",
+      "subtitle": "AI-powered Formula 1 knowledge system using Retrieval Augmented Generation",
+      "technologies": [
+        "TypeScript",
+        "React",
+        "OpenAI",
+        "Vector DB",
+        "RAG",
+        "TailwindCSS"
+      ],
+      "domain": "AI · LLM · Full-Stack",
+      "category": "ai",
+      "tier": 1,
+      "visible": true,
+      "github": "https://github.com/KartikJondhalekar/F1-GPT",
+      "demo": null,
+      "summary": "Designed modern chat interface with real-time streaming responses and glassmorphism UI. Powered by RAG architecture to ground AI responses in factual F1 data.",
+      "problem": "Static content and search-based systems failed to deliver real-time, context-aware Formula 1 insights.",
+      "constraints": [
+        "Low-latency responses for interactive chat",
+        "High relevance and accuracy requirements",
+        "Scalable AI architecture",
+        "Preventing hallucinations on factual data"
+      ],
+      "decisions": [
+        {
+          "decision": "Implemented vector similarity search with embeddings",
+          "rationale": "Converts racing data to embeddings, enabling semantic search. Retrieves most relevant context for each query."
+        },
+        {
+          "decision": "Designed RAG pipelines for context injection",
+          "rationale": "Grounds LLM responses in retrieved documents. Significantly reduces hallucinations compared to prompt-only approaches."
+        },
+        {
+          "decision": "Real-time streaming AI responses",
+          "rationale": "Improves perceived performance. Users see responses as they're generated rather than waiting for complete answers."
+        },
+        {
+          "decision": "Modern UI with TailwindCSS",
+          "rationale": "Responsive design with utility-first CSS. Fast development without custom CSS overhead."
+        }
+      ],
+      "outcomes": [
+        "Delivered accurate, context-aware responses on F1 history and statistics",
+        "Reduced hallucinations compared to prompt-only LLMs",
+        "Demonstrated scalable AI application design patterns",
+        "Achieved sub-2s response times for most queries"
+      ],
+      "improvements": [
+        "Add citation links to source documents",
+        "Implement conversation memory for follow-up questions",
+        "Cache embeddings for frequently accessed data",
+        "Add feedback mechanism to improve retrieval quality"
+      ],
+      "architecture": {
+        "overview": "RAG architecture combining vector search, LLM generation, and streaming responses.",
+        "components": [
+          "Vector Database: Stores F1 data as embeddings for semantic search",
+          "Retrieval Layer: Finds relevant context via similarity search",
+          "LLM Generation: OpenAI generates responses grounded in retrieved data",
+          "Streaming API: Real-time token streaming to frontend",
+          "Frontend: React + TailwindCSS with real-time UI updates"
+        ],
+        "dataFlow": "User query → Embedding → Vector search → Context retrieval → LLM prompt → Streaming response → Frontend"
+      }
+    },
+    {
+      "id": "kanbas-lms",
+      "title": "Kanbas LMS",
+      "subtitle": "Learning Management System inspired by Canvas",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "domain": "Full-Stack · Web Applications",
+      "category": "fullstack",
+      "tier": 2,
+      "visible": true,
+      "github": [
+        "https://github.com/KartikJondhalekar/kanbas-react-web-app",
+        "https://github.com/KartikJondhalekar/kanbas-node-server-app"
+      ],
+      "demo": null,
+      "summary": "Developed responsive, accessible dashboard UI for course management with reusable React components and API-driven navigation. Complete LMS feature set.",
+      "problem": "Educational platforms require intuitive content management and role-based workflows for instructors and students.",
+      "constraints": [
+        "Complex entity relationships (courses, modules, assignments)",
+        "Role-specific access (instructor vs. student permissions)",
+        "Responsive UI requirements",
+        "Real-time grade updates"
+      ],
+      "decisions": [
+        {
+          "decision": "Built RESTful APIs with Node.js + Express",
+          "rationale": "Standard REST conventions. Easy to test and document. Supports frontend flexibility."
+        },
+        {
+          "decision": "State-driven UI using React",
+          "rationale": "Component-based architecture. Efficient re-rendering. Rich ecosystem for UI components."
+        },
+        {
+          "decision": "MongoDB schema design for course data",
+          "rationale": "Flexible schema for nested course structures. Document model matches domain objects naturally."
+        },
+        {
+          "decision": "Implemented role-based interactions",
+          "rationale": "Instructors create/edit content. Students view and submit. Enforced at both API and UI layers."
+        }
+      ],
+      "outcomes": [
+        "Delivered complete LMS feature set (courses, assignments, grades)",
+        "Strengthened full-stack architectural skills",
+        "Demonstrated end-to-end web application ownership",
+        "Created scalable data model for educational content"
+      ],
+      "improvements": [
+        "Add real-time notifications for grade updates",
+        "Implement discussion forums",
+        "Add file upload for assignment submissions",
+        "Create analytics dashboard for instructors"
+      ],
+      "architecture": {
+        "overview": "Classic MERN stack with RESTful API and React frontend.",
+        "components": [
+          "Frontend: React SPA with component-based architecture",
+          "API: Node.js + Express RESTful services",
+          "Database: MongoDB for flexible course data modeling",
+          "Authentication: JWT-based user sessions",
+          "Authorization: Role-based access control"
+        ],
+        "dataFlow": "React UI → REST API → Express Routes → MongoDB → Response → React State Update"
+      }
+    },
+    {
+      "id": "event-rsvp",
+      "title": "Event RSVP Platform",
+      "subtitle": "Fully serverless event management application on AWS",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "AWS Lambda",
+        "API Gateway",
+        "RDS",
+        "DynamoDB",
+        "S3",
+        "CloudFront"
+      ],
+      "domain": "Cloud · Serverless · Full-Stack",
+      "category": "cloud",
+      "tier": 1,
+      "visible": true,
+      "github": "https://github.com/KartikJondhalekar/Event-RSVP-app",
+      "demo": null,
+      "summary": "Built serverless event platform with clean, responsive UI and AWS backend. Demonstrates cloud-native full-stack architecture ownership.",
+      "problem": "Traditional server-based event systems were costly to scale and maintain for variable traffic patterns.",
+      "constraints": [
+        "Spiky traffic loads (event announcements)",
+        "Minimal infrastructure management",
+        "Secure public-facing APIs",
+        "Cost-effective for low baseline traffic"
+      ],
+      "decisions": [
+        {
+          "decision": "API Gateway + Lambda for compute",
+          "rationale": "Pay-per-request pricing. No idle costs. Automatic scaling for traffic spikes. Zero server management."
+        },
+        {
+          "decision": "DynamoDB for RSVP data, RDS for event metadata",
+          "rationale": "DynamoDB handles high-velocity RSVP writes. RDS provides relational structure for event data with complex queries."
+        },
+        {
+          "decision": "S3 + CloudFront for frontend hosting",
+          "rationale": "Static site hosting with global CDN. Sub-100ms latency worldwide. Minimal costs."
+        },
+        {
+          "decision": "IAM-based access control",
+          "rationale": "Leverage AWS-managed authentication. No custom auth code. Improved security posture."
+        }
+      ],
+      "outcomes": [
+        "Scaled automatically with demand, handling 500+ concurrent RSVPs",
+        "Reduced operational overhead to near-zero",
+        "Demonstrated cloud-native service ownership",
+        "Sub-200ms API response times globally"
+      ],
+      "improvements": [
+        "Add email notifications via SNS/SES",
+        "Implement rate limiting for spam prevention",
+        "Add analytics dashboard for organizers",
+        "Support multi-event management"
+      ],
+      "architecture": {
+        "overview": "Fully serverless architecture using AWS managed services. No EC2 instances or container orchestration.",
+        "components": [
+          "API Gateway: REST endpoints, request validation, throttling",
+          "Lambda Functions: Business logic for RSVP operations",
+          "DynamoDB: High-throughput RSVP data storage",
+          "RDS: Event metadata with relational integrity",
+          "S3 + CloudFront: Static hosting with global CDN"
+        ],
+        "dataFlow": "User → CloudFront → API Gateway → Lambda → DynamoDB/RDS → Response → CloudFront → User"
+      }
+    },
     {
       "id": "inventory-management",
       "title": "Inventory Management Tool",
@@ -202,215 +480,6 @@
       }
     },
     {
-      "id": "ask-chinook",
-      "title": "Ask Chinook",
-      "subtitle": "Natural language to SQL system with safety-first AI execution",
-      "technologies": [
-        "TypeScript",
-        "React",
-        "Node.js",
-        "Express",
-        "OpenAI",
-        "LangChain",
-        "LangSmith"
-      ],
-      "domain": "AI · Developer Tools · Data Access",
-      "category": "ai",
-      "tier": 1,
-      "visible": true,
-      "github": "https://github.com/KartikJondhalekar/Ask-Chinook",
-      "demo": null,
-      "summary": "AI-powered SQL generation with enforced read-only execution, demonstrating production-grade LLM safety patterns.",
-      "problem": "Non-technical users struggled to query relational databases safely and efficiently without SQL expertise.",
-      "constraints": [
-        "Strict read-only database access (no mutations)",
-        "Preventing unsafe or destructive queries",
-        "AI observability and reliability",
-        "Low latency for interactive queries"
-      ],
-      "decisions": [
-        {
-          "decision": "Enforce SELECT-only execution at execution layer",
-          "rationale": "Security by design, not by prompt engineering. Even if LLM generates DROP or UPDATE, execution layer blocks it."
-        },
-        {
-          "decision": "Server-side API key handling",
-          "rationale": "API keys never touch client. Reduces attack surface and prevents key leakage in browser dev tools."
-        },
-        {
-          "decision": "Integrated LangSmith for observability",
-          "rationale": "LLM failures are opaque. LangSmith provides latency metrics, token usage, and prompt/response pairs for debugging."
-        },
-        {
-          "decision": "Used LangChain for prompt management",
-          "rationale": "Keeps prompt logic modular and testable. Easier to iterate on prompt structure without redeploying."
-        }
-      ],
-      "outcomes": [
-        "Enabled safe self-service data access for non-technical users",
-        "Improved query turnaround time by eliminating SQL writing bottleneck",
-        "Demonstrated production-grade AI safety patterns",
-        "Provided full observability into LLM behavior"
-      ],
-      "improvements": [
-        "Add query result caching to reduce redundant LLM calls",
-        "Implement feedback loop (user marks correct/incorrect results)",
-        "Support multi-turn conversations for query refinement",
-        "Add schema-aware context to improve query accuracy"
-      ],
-      "architecture": {
-        "overview": "Three-tier architecture with validation layer between LLM and database execution.",
-        "components": [
-          "Frontend: React + TypeScript for query input and results",
-          "API Layer: Express server handling LLM calls and SQL execution",
-          "Validation Layer: Query parser blocking non-SELECT operations",
-          "LangChain: Prompt construction and LLM orchestration",
-          "LangSmith: Observability, tracing, and debugging"
-        ],
-        "dataFlow": "User query → API → LangChain → OpenAI → SQL generation → Validation → Execution → Results → Frontend"
-      }
-    },
-    {
-      "id": "f1-gpt",
-      "title": "F1-GPT",
-      "subtitle": "AI-powered Formula 1 knowledge system using Retrieval Augmented Generation",
-      "technologies": [
-        "TypeScript",
-        "React",
-        "OpenAI",
-        "Vector DB",
-        "RAG",
-        "TailwindCSS"
-      ],
-      "domain": "AI · LLM · Full-Stack",
-      "category": "ai",
-      "tier": 1,
-      "visible": true,
-      "github": "https://github.com/KartikJondhalekar/F1-GPT",
-      "demo": null,
-      "summary": "Conversational AI system using RAG to ground LLM responses in authoritative Formula 1 data, reducing hallucinations.",
-      "problem": "Static content and search-based systems failed to deliver real-time, context-aware Formula 1 insights.",
-      "constraints": [
-        "Low-latency responses for interactive chat",
-        "High relevance and accuracy requirements",
-        "Scalable AI architecture",
-        "Preventing hallucinations on factual data"
-      ],
-      "decisions": [
-        {
-          "decision": "Implemented vector similarity search with embeddings",
-          "rationale": "Converts racing data to embeddings, enabling semantic search. Retrieves most relevant context for each query."
-        },
-        {
-          "decision": "Designed RAG pipelines for context injection",
-          "rationale": "Grounds LLM responses in retrieved documents. Significantly reduces hallucinations compared to prompt-only approaches."
-        },
-        {
-          "decision": "Real-time streaming AI responses",
-          "rationale": "Improves perceived performance. Users see responses as they're generated rather than waiting for complete answers."
-        },
-        {
-          "decision": "Modern UI with TailwindCSS",
-          "rationale": "Responsive design with utility-first CSS. Fast development without custom CSS overhead."
-        }
-      ],
-      "outcomes": [
-        "Delivered accurate, context-aware responses on F1 history and statistics",
-        "Reduced hallucinations compared to prompt-only LLMs",
-        "Demonstrated scalable AI application design patterns",
-        "Achieved sub-2s response times for most queries"
-      ],
-      "improvements": [
-        "Add citation links to source documents",
-        "Implement conversation memory for follow-up questions",
-        "Cache embeddings for frequently accessed data",
-        "Add feedback mechanism to improve retrieval quality"
-      ],
-      "architecture": {
-        "overview": "RAG architecture combining vector search, LLM generation, and streaming responses.",
-        "components": [
-          "Vector Database: Stores F1 data as embeddings for semantic search",
-          "Retrieval Layer: Finds relevant context via similarity search",
-          "LLM Generation: OpenAI generates responses grounded in retrieved data",
-          "Streaming API: Real-time token streaming to frontend",
-          "Frontend: React + TailwindCSS with real-time UI updates"
-        ],
-        "dataFlow": "User query → Embedding → Vector search → Context retrieval → LLM prompt → Streaming response → Frontend"
-      }
-    },
-    {
-      "id": "event-rsvp",
-      "title": "Event RSVP Platform",
-      "subtitle": "Fully serverless event management application on AWS",
-      "technologies": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Node.js",
-        "AWS Lambda",
-        "API Gateway",
-        "RDS",
-        "DynamoDB",
-        "S3",
-        "CloudFront"
-      ],
-      "domain": "Cloud · Serverless · Full-Stack",
-      "category": "cloud",
-      "tier": 1,
-      "visible": true,
-      "github": "https://github.com/KartikJondhalekar/Event-RSVP-app",
-      "demo": null,
-      "summary": "Cloud-native event system demonstrating AWS serverless architecture and infrastructure-as-code patterns.",
-      "problem": "Traditional server-based event systems were costly to scale and maintain for variable traffic patterns.",
-      "constraints": [
-        "Spiky traffic loads (event announcements)",
-        "Minimal infrastructure management",
-        "Secure public-facing APIs",
-        "Cost-effective for low baseline traffic"
-      ],
-      "decisions": [
-        {
-          "decision": "API Gateway + Lambda for compute",
-          "rationale": "Pay-per-request pricing. No idle costs. Automatic scaling for traffic spikes. Zero server management."
-        },
-        {
-          "decision": "DynamoDB for RSVP data, RDS for event metadata",
-          "rationale": "DynamoDB handles high-velocity RSVP writes. RDS provides relational structure for event data with complex queries."
-        },
-        {
-          "decision": "S3 + CloudFront for frontend hosting",
-          "rationale": "Static site hosting with global CDN. Sub-100ms latency worldwide. Minimal costs."
-        },
-        {
-          "decision": "IAM-based access control",
-          "rationale": "Leverage AWS-managed authentication. No custom auth code. Improved security posture."
-        }
-      ],
-      "outcomes": [
-        "Scaled automatically with demand, handling 500+ concurrent RSVPs",
-        "Reduced operational overhead to near-zero",
-        "Demonstrated cloud-native service ownership",
-        "Sub-200ms API response times globally"
-      ],
-      "improvements": [
-        "Add email notifications via SNS/SES",
-        "Implement rate limiting for spam prevention",
-        "Add analytics dashboard for organizers",
-        "Support multi-event management"
-      ],
-      "architecture": {
-        "overview": "Fully serverless architecture using AWS managed services. No EC2 instances or container orchestration.",
-        "components": [
-          "API Gateway: REST endpoints, request validation, throttling",
-          "Lambda Functions: Business logic for RSVP operations",
-          "DynamoDB: High-throughput RSVP data storage",
-          "RDS: Event metadata with relational integrity",
-          "S3 + CloudFront: Static hosting with global CDN"
-        ],
-        "dataFlow": "User → CloudFront → API Gateway → Lambda → DynamoDB/RDS → Response → CloudFront → User"
-      }
-    },
-    {
       "id": "epayslip",
       "title": "ePayslip System",
       "subtitle": "Secure payroll platform optimized by removing legacy reporting dependencies",
@@ -540,72 +609,6 @@
           "Reporting: Compliance dashboards and audit exports"
         ],
         "dataFlow": "Source Systems → Validation Engine → SQL Server → Issue Detection → Workflow Assignment → Resolution → Audit Log"
-      }
-    },
-    {
-      "id": "kanbas-lms",
-      "title": "Kanbas LMS",
-      "subtitle": "Learning Management System inspired by Canvas",
-      "technologies": [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB"
-      ],
-      "domain": "Full-Stack · Web Applications",
-      "category": "fullstack",
-      "tier": 2,
-      "visible": true,
-      "github": "https://github.com/KartikJondhalekar",
-      "demo": null,
-      "summary": "Complete LMS implementation demonstrating full-stack architecture and role-based user workflows.",
-      "problem": "Educational platforms require intuitive content management and role-based workflows for instructors and students.",
-      "constraints": [
-        "Complex entity relationships (courses, modules, assignments)",
-        "Role-specific access (instructor vs. student permissions)",
-        "Responsive UI requirements",
-        "Real-time grade updates"
-      ],
-      "decisions": [
-        {
-          "decision": "Built RESTful APIs with Node.js + Express",
-          "rationale": "Standard REST conventions. Easy to test and document. Supports frontend flexibility."
-        },
-        {
-          "decision": "State-driven UI using React",
-          "rationale": "Component-based architecture. Efficient re-rendering. Rich ecosystem for UI components."
-        },
-        {
-          "decision": "MongoDB schema design for course data",
-          "rationale": "Flexible schema for nested course structures. Document model matches domain objects naturally."
-        },
-        {
-          "decision": "Implemented role-based interactions",
-          "rationale": "Instructors create/edit content. Students view and submit. Enforced at both API and UI layers."
-        }
-      ],
-      "outcomes": [
-        "Delivered complete LMS feature set (courses, assignments, grades)",
-        "Strengthened full-stack architectural skills",
-        "Demonstrated end-to-end web application ownership",
-        "Created scalable data model for educational content"
-      ],
-      "improvements": [
-        "Add real-time notifications for grade updates",
-        "Implement discussion forums",
-        "Add file upload for assignment submissions",
-        "Create analytics dashboard for instructors"
-      ],
-      "architecture": {
-        "overview": "Classic MERN stack with RESTful API and React frontend.",
-        "components": [
-          "Frontend: React SPA with component-based architecture",
-          "API: Node.js + Express RESTful services",
-          "Database: MongoDB for flexible course data modeling",
-          "Authentication: JWT-based user sessions",
-          "Authorization: Role-based access control"
-        ],
-        "dataFlow": "React UI → REST API → Express Routes → MongoDB → Response → React State Update"
       }
     }
   ],

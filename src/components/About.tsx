@@ -50,8 +50,8 @@ export default function About() {
                 <h3 className="font-display text-lg font-bold mb-3 text-primary">Currently</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   Recent M.S. in Computer Science graduate from Northeastern University (GPA: {education.gpa}),
-                  completed {education.graduationDate}. Actively seeking full-time opportunities in Software Development/Engineering,
-                  Full-Stack Development, Backend/Frontend Engineering, and Web/App Development roles.
+                  completed {education.graduationDate}. Actively seeking full-time opportunities in
+                  Full-Stack Engineering, Front-End Development, and Web Application Development.
                 </p>
               </div>
 
@@ -59,9 +59,9 @@ export default function About() {
               <div className="p-6 bg-background border border-border rounded-xl">
                 <h3 className="font-display text-lg font-bold mb-3 text-primary">Technical Interests</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  Distributed systems design, cloud-native architecture, API design,
-                  observability and reliability engineering, developer experience, and
-                  building tools that improve engineering velocity.
+                  Modern frontend frameworks (React, Next.js), responsive UI design, API development,
+                  cloud-native architecture, developer experience, and building tools that improve
+                  both user experience and engineering velocity.
                 </p>
               </div>
             </div>
@@ -71,20 +71,20 @@ export default function About() {
               <h3 className="font-display text-lg font-bold mb-4 text-accent">My Approach to Engineering</h3>
               <div className="grid sm:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <div className="font-mono text-accent mb-1">→ Pragmatic Solutions</div>
-                  <p className="text-text-secondary">Choose simple, maintainable approaches over clever complexity</p>
+                  <div className="font-mono text-accent mb-1">→ User-Centered Design</div>
+                  <p className="text-text-secondary">Build interfaces that feel responsive, accessible, and intuitive</p>
                 </div>
                 <div>
-                  <div className="font-mono text-accent mb-1">→ Measured Impact</div>
-                  <p className="text-text-secondary">Focus on metrics that matter: latency, reliability, user experience</p>
+                  <div className="font-mono text-accent mb-1">→ Component Thinking</div>
+                  <p className="text-text-secondary">Create reusable, composable UI patterns with clear APIs</p>
                 </div>
                 <div>
-                  <div className="font-mono text-accent mb-1">→ Iterative Delivery</div>
-                  <p className="text-text-secondary">Ship incrementally with feature flags and observability</p>
+                  <div className="font-mono text-accent mb-1">→ Performance Matters</div>
+                  <p className="text-text-secondary">Optimize for fast loads, smooth interactions, and great UX</p>
                 </div>
                 <div>
-                  <div className="font-mono text-accent mb-1">→ System Thinking</div>
-                  <p className="text-text-secondary">Consider failure modes, dependencies, and operational costs</p>
+                  <div className="font-mono text-accent mb-1">→ Full-Stack Mindset</div>
+                  <p className="text-text-secondary">Balance frontend polish with backend reliability and scalability</p>
                 </div>
               </div>
             </div>
@@ -137,9 +137,9 @@ export default function About() {
         {/* Skills Grid - Full Width */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           <div className="p-6 bg-background border border-border rounded-xl hover:border-primary transition-colors">
-            <h3 className="font-display text-sm font-bold mb-4 text-primary uppercase tracking-wider">Languages & Frameworks</h3>
+            <h3 className="font-display text-sm font-bold mb-4 text-primary uppercase tracking-wider">Frontend & UI</h3>
             <div className="flex flex-wrap gap-2">
-              {['C#', 'Java', 'Python', 'TypeScript', '.NET', 'React', 'Node.js', 'Angular', 'Django'].map((skill) => (
+              {['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML/CSS', 'TailwindCSS', 'Angular', 'UI Patterns', 'Accessibility'].map((skill) => (
                 <span
                   key={skill}
                   className="px-3 py-1 bg-surface border border-border rounded-full font-mono text-xs text-text-secondary hover:border-primary hover:text-primary transition-colors"
@@ -151,9 +151,9 @@ export default function About() {
           </div>
 
           <div className="p-6 bg-background border border-border rounded-xl hover:border-accent transition-colors">
-            <h3 className="font-display text-sm font-bold mb-4 text-accent uppercase tracking-wider">Cloud & Infrastructure</h3>
+            <h3 className="font-display text-sm font-bold mb-4 text-accent uppercase tracking-wider">Backend & APIs</h3>
             <div className="flex flex-wrap gap-2">
-              {['Azure', 'AWS', 'Docker', 'Kubernetes', 'CI/CD', 'GitLab', 'Jenkins', 'GitHub Actions'].map((skill) => (
+              {['Node.js', 'Express', '.NET Core', 'C#', 'REST APIs', 'Microservices', 'Auth', 'Python', 'Django'].map((skill) => (
                 <span
                   key={skill}
                   className="px-3 py-1 bg-surface border border-border rounded-full font-mono text-xs text-text-secondary hover:border-accent hover:text-accent transition-colors"
@@ -165,9 +165,9 @@ export default function About() {
           </div>
 
           <div className="p-6 bg-background border border-border rounded-xl hover:border-secondary transition-colors">
-            <h3 className="font-display text-sm font-bold mb-4 text-secondary uppercase tracking-wider">Data & AI</h3>
+            <h3 className="font-display text-sm font-bold mb-4 text-secondary uppercase tracking-wider">Cloud & Data</h3>
             <div className="flex flex-wrap gap-2">
-              {['SQL Server', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'OpenAI', 'LangChain', 'Vector DB', 'RAG'].map((skill) => (
+              {['AWS', 'Azure', 'Docker', 'SQL Server', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'OpenAI', 'LangChain'].map((skill) => (
                 <span
                   key={skill}
                   className="px-3 py-1 bg-surface border border-border rounded-full font-mono text-xs text-text-secondary hover:border-secondary hover:text-secondary transition-colors"
