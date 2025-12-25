@@ -58,10 +58,10 @@ export default function About() {
             {/* Technical Interests */}
             <div className="p-6 bg-background border border-border rounded-xl">
               <h3 className="font-display text-sm font-bold mb-3 text-primary uppercase tracking-wider">Technical Interests</h3>
-              <p className="text-text-secondary text-xs leading-relaxed">
-                Modern frontend frameworks (React, Next.js), responsive UI design, API development,
-                cloud-native architecture, developer experience, and building tools that improve
-                both user experience and engineering velocity.
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Modern frontend frameworks (React, Angular, Next.js), UI/UX design, component architecture,
+                responsive design, API development, cloud-native systems, and building tools that
+                improve both user experience and developer velocity.
               </p>
             </div>
 

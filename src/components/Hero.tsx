@@ -113,6 +113,13 @@ export default function Hero() {
           {profile.tagline}
         </motion.p>
 
+        <motion.p
+          variants={itemVariants}
+          className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto font-mono"
+        >
+          Frontend • Full-Stack • Cloud
+        </motion.p>
+
         {/* Location & Quick Contact */}
         <motion.div
           variants={itemVariants}
