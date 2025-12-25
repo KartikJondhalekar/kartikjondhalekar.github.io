@@ -4,14 +4,14 @@ import './globals.css';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const rajdhani = Rajdhani({
+const rajdhani = Rajdhani({ 
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const orbitron = Orbitron({
+const orbitron = Orbitron({ 
   weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-display',
@@ -53,18 +53,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
-    <html
-      lang="en"
+    <html 
+      lang="en" 
       className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >
       <head>
         {/* Google Analytics */}
-        {process.env.NODE_ENV === 'production' && (
+        {process.env.NODE_ENV === 'production' && gaId && (
           <>
             <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-8HNZE0ZCH7"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
               strategy="afterInteractive"
             />
             <Script id="google-analytics" strategy="afterInteractive">
@@ -72,8 +74,7 @@ export default function RootLayout({
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-
-                gtag('config', 'G-8HNZE0ZCH7');
+                gtag('config', '${gaId}');
               `}
             </Script>
           </>
