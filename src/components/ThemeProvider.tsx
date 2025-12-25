@@ -13,25 +13,35 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
 
-  // Run once on mount
   useEffect(() => {
-    setMounted(true);
+    // Get theme from localStorage or use default
     const savedTheme = (localStorage.getItem('theme') as Theme) || 'dark';
     setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Add class to html element
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
   }, []);
 
-  // Update DOM + localStorage when theme changes
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme, mounted]);
-
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Toggle classes
+    if (newTheme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
   };
 
   return (
@@ -43,7 +53,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (!context) {
+  if (context === undefined) {
     throw new Error('useTheme must be used within ThemeProvider');
   }
   return context;

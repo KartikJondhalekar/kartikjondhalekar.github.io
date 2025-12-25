@@ -31,8 +31,8 @@
   --section-padding: 6rem;
 }
 
-/* Light Mode */
-[data-theme='light'] {
+/* Light Mode - Using class instead of data-theme attribute */
+html.light {
   --color-bg-main: #F8FAFC;
   --color-bg-card: #FFFFFF;
   --color-primary: #0284C7;
@@ -48,6 +48,27 @@
   --color-text: var(--color-text-main);
   --color-text-secondary: var(--color-text-muted);
 }
+
+/* Also support prefers-color-scheme for browsers without JS */
+@media (prefers-color-scheme: light) {
+  :root:not(.dark) {
+    --color-bg-main: #F8FAFC;
+    --color-bg-card: #FFFFFF;
+    --color-primary: #0284C7;
+    --color-secondary: #4F46E5;
+    --color-text-main: #0F172A;
+    --color-text-muted: #475569;
+    --color-accent: #0891B2;
+    --color-border: #E2E8F0;
+    --color-glow: #0284C7;
+
+    --color-background: var(--color-bg-main);
+    --color-surface: var(--color-bg-card);
+    --color-text: var(--color-text-main);
+    --color-text-secondary: var(--color-text-muted);
+  }
+}
+
 
 /* Base Styles */
 * {
@@ -71,7 +92,12 @@ body {
 }
 
 /* Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
@@ -106,18 +132,24 @@ code {
 
 /* Animations */
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
@@ -128,6 +160,7 @@ code {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -136,6 +169,7 @@ code {
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -143,7 +177,7 @@ code {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   html {
     scroll-behavior: auto;
   }
@@ -172,7 +206,7 @@ code {
   box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
 }
 
-[data-theme='light'] .glass-effect {
+html.light .glass-effect {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(2, 132, 199, 0.2);
   box-shadow: 0 0 20px rgba(2, 132, 199, 0.05);
@@ -180,8 +214,8 @@ code {
 
 .neon-glow {
   box-shadow: 0 0 10px var(--color-primary),
-              0 0 20px var(--color-primary),
-              0 0 40px var(--color-accent);
+    0 0 20px var(--color-primary),
+    0 0 40px var(--color-accent);
 }
 
 /* Custom decorative element */

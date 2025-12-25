@@ -61,10 +61,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
+      className={`dark ${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >
       <head>
+        {/* Set theme class immediately before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.classList.remove('light', 'dark');
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
+
         {/* Google Analytics */}
         {process.env.NODE_ENV === 'production' && gaId && (
           <>
