@@ -113,13 +113,31 @@ export default function Hero() {
           {profile.tagline}
         </motion.p>
 
-        {/* Location */}
+        {/* Location & Quick Contact */}
         <motion.div
           variants={itemVariants}
-          className="flex items-center justify-center gap-2 text-text-secondary mb-12"
+          className="flex flex-wrap items-center justify-center gap-4 text-text-secondary mb-12"
         >
-          <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="font-mono text-sm">{profile.location}</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            <span className="font-mono text-sm">{profile.location}</span>
+          </div>
+          <span className="text-border">•</span>
+          <a
+            href={`mailto:${profile.contact.email}`}
+            className="font-mono text-sm hover:text-accent transition-colors"
+          >
+            {profile.contact.email}
+          </a>
+          <span className="text-border">•</span>
+          <a
+            href={profile.contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-sm hover:text-accent transition-colors"
+          >
+            LinkedIn
+          </a>
         </motion.div>
 
         {/* CTA Buttons */}

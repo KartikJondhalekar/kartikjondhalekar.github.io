@@ -36,100 +36,74 @@ export default function About() {
           </h2>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Left Column - Bio */}
-          <div className="lg:col-span-2 space-y-8">
-            <p className="text-lg text-text-secondary leading-relaxed">
-              {profile.bio}
-            </p>
+        {/* Main Content - Optimized Layout */}
+        <div className="space-y-8">
+          {/* Bio - Full Width */}
+          <p className="text-lg text-text-secondary leading-relaxed">
+            {profile.bio}
+          </p>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Current Focus */}
-              <div className="p-6 bg-background border border-border rounded-xl">
-                <h3 className="font-display text-lg font-bold mb-3 text-primary">Currently</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  Recent M.S. in Computer Science graduate from Northeastern University (GPA: {education.gpa}),
-                  completed {education.graduationDate}. Actively seeking full-time opportunities in
-                  Full-Stack Engineering, Front-End Development, and Web Application Development.
-                </p>
-              </div>
-
-              {/* Technical Interests */}
-              <div className="p-6 bg-background border border-border rounded-xl">
-                <h3 className="font-display text-lg font-bold mb-3 text-primary">Technical Interests</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  Modern frontend frameworks (React, Next.js), responsive UI design, API development,
-                  cloud-native architecture, developer experience, and building tools that improve
-                  both user experience and engineering velocity.
-                </p>
-              </div>
+          {/* 4-Column Grid for All Info */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Currently */}
+            <div className="p-6 bg-background border border-border rounded-xl">
+              <h3 className="font-display text-sm font-bold mb-3 text-primary uppercase tracking-wider">Currently</h3>
+              <p className="text-text-secondary text-xs leading-relaxed">
+                Recent M.S. in Computer Science graduate from Northeastern University (GPA: {education.gpa}),
+                completed {education.graduationDate}. Actively seeking full-time opportunities in
+                Full-Stack Engineering, Front-End Development, and Web Application Development.
+              </p>
             </div>
 
-            {/* Working Approach - Fills the empty space */}
+            {/* Technical Interests */}
             <div className="p-6 bg-background border border-border rounded-xl">
-              <h3 className="font-display text-lg font-bold mb-4 text-accent">My Approach to Engineering</h3>
-              <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <div className="font-mono text-accent mb-1">→ User-Centered Design</div>
-                  <p className="text-text-secondary">Build interfaces that feel responsive, accessible, and intuitive</p>
-                </div>
-                <div>
-                  <div className="font-mono text-accent mb-1">→ Component Thinking</div>
-                  <p className="text-text-secondary">Create reusable, composable UI patterns with clear APIs</p>
-                </div>
-                <div>
-                  <div className="font-mono text-accent mb-1">→ Performance Matters</div>
-                  <p className="text-text-secondary">Optimize for fast loads, smooth interactions, and great UX</p>
-                </div>
-                <div>
-                  <div className="font-mono text-accent mb-1">→ Full-Stack Mindset</div>
-                  <p className="text-text-secondary">Balance frontend polish with backend reliability and scalability</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Stats & Quick Facts */}
-          <div className="space-y-6">
-            {/* Experience Stats */}
-            <div className="p-6 bg-background border border-border rounded-xl">
-              <h3 className="font-display text-lg font-bold mb-4">Experience</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="text-3xl font-display font-bold text-accent">3+</div>
-                  <div className="text-sm text-text-secondary">Years Professional</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-display font-bold text-accent">150K+</div>
-                  <div className="text-sm text-text-secondary">Users Supported</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-display font-bold text-accent">35%</div>
-                  <div className="text-sm text-text-secondary">Performance Gains</div>
-                </div>
-              </div>
+              <h3 className="font-display text-sm font-bold mb-3 text-primary uppercase tracking-wider">Technical Interests</h3>
+              <p className="text-text-secondary text-xs leading-relaxed">
+                Modern frontend frameworks (React, Next.js), responsive UI design, API development,
+                cloud-native architecture, developer experience, and building tools that improve
+                both user experience and engineering velocity.
+              </p>
             </div>
 
             {/* Education */}
             <div className="p-6 bg-background border border-border rounded-xl">
-              <h3 className="font-display text-lg font-bold mb-3">Education</h3>
-              <div className="space-y-2">
-                <div className="font-mono text-sm text-accent">{education.degree}</div>
-                <div className="text-sm text-text-secondary">{education.school}</div>
-                <div className="text-sm text-text-secondary">GPA: {education.gpa}</div>
-                <div className="text-xs text-text-secondary mt-2">{education.graduationDate}</div>
+              <h3 className="font-display text-sm font-bold mb-3 text-accent uppercase tracking-wider">Education</h3>
+              <div className="space-y-3">
+                {/* Master's */}
+                <div>
+                  <div className="font-mono text-xs text-accent">M.S. Computer Science</div>
+                  <div className="text-xs text-text-secondary">Northeastern University</div>
+                  <div className="text-xs text-text-secondary">GPA: 3.85/4.0 · Dec 2025</div>
+                </div>
+                {/* Bachelor's */}
+                <div className="pt-2 border-t border-border">
+                  <div className="font-mono text-xs text-accent">B.E. Electronics & Telecom</div>
+                  <div className="text-xs text-text-secondary">University of Mumbai</div>
+                  <div className="text-xs text-text-secondary">GPA: 9.31/10.0 · May 2021</div>
+                </div>
               </div>
             </div>
 
-            {/* Location */}
+            {/* Stats + Location Combined */}
             <div className="p-6 bg-background border border-border rounded-xl">
-              <h3 className="font-display text-lg font-bold mb-3">Based In</h3>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                <div className="text-text-secondary">{profile.location}</div>
+              <h3 className="font-display text-sm font-bold mb-3 text-secondary uppercase tracking-wider">Experience</h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-2xl font-display font-bold text-accent">3+</div>
+                  <div className="text-xs text-text-secondary">Years Professional</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-display font-bold text-accent">150K+</div>
+                  <div className="text-xs text-text-secondary">Users Supported</div>
+                </div>
+                <div className="pt-2 border-t border-border">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <div className="text-xs text-text-secondary">{profile.location}</div>
+                  </div>
+                  <div className="text-xs text-text-secondary mt-1">Open to relocation</div>
+                </div>
               </div>
-              <div className="text-xs text-text-secondary mt-2">Open to relocation</div>
             </div>
           </div>
         </div>

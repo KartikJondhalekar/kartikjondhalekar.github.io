@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import contentData from '@/data/content.json';
 import type { ContentData, MindsetSection } from '@/types/content';
@@ -40,8 +40,8 @@ export default function HowIThink() {
             {data.mindset.title}
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl">
-            Engineering isn&apos;t just about writing code. It&apos;s about making informed decisions
-            under constraints, debugging complex systems, and balancing speed with quality.
+            How I approach technical decisions, debugging, and building systems.
+            Click to expand each principle.
           </p>
         </div>
 
@@ -80,14 +80,16 @@ export default function HowIThink() {
                         <h4 className="font-mono text-sm font-bold mb-3 text-accent">
                           My Approach:
                         </h4>
-                        <ul className="space-y-2">
-                          {section.approach.map((step: string, idx: number) => (
-                            <li key={idx} className="flex gap-3 text-text-secondary text-sm">
-                              <span className="text-accent mt-1 font-bold">{idx + 1}.</span>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <AnimatePresence>
+                          <ul className="space-y-2">
+                            {section.approach.map((step: string, idx: number) => (
+                              <li key={idx} className="flex gap-3 text-text-secondary text-sm">
+                                <span className="text-accent mt-1 font-bold">{idx + 1}.</span>
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </AnimatePresence>
                       </motion.div>
                     )}
                   </div>

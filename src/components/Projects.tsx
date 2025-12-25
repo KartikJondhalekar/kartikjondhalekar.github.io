@@ -63,8 +63,8 @@ export default function Projects() {
             Projects that show how I think
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mb-8">
-            Each project includes the problem context, technical decisions, trade-offs made,
-            and what I&apos;d improve next. Click any project for a deep-dive.
+            Core projects highlighted below—each includes problem context, technical decisions,
+            and outcomes. More work available under Additional Projects section.
           </p>
 
           {/* Category Filters */}
@@ -74,8 +74,8 @@ export default function Projects() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 rounded-lg font-mono text-sm transition-all ${activeCategory === category.id
-                    ? 'bg-accent text-background'
-                    : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
+                  ? 'bg-accent text-background'
+                  : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
                   }`}
               >
                 {category.label}
