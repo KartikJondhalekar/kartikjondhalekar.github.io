@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kartik Jondhalekar' }],
   icons: {
     icon: '/favicon.svg',
-    apple: '/apple-icon.png',
   },
   openGraph: {
     type: 'website',
