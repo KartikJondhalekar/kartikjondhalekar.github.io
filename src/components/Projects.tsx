@@ -140,21 +140,41 @@ export default function Projects() {
                     {project.summary}
                   </p>
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.technologies.slice(0, 4).map((tech: string) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-background border border-border rounded-full font-mono text-xs text-text-secondary group-hover:border-primary/40 transition-colors"
+                  {/* GitHub Icon & Tech Stack */}
+                  <div className="flex items-center gap-3 mt-auto">
+                    {/* GitHub Shortcut Icon */}
+                    {project.github && (
+                      <a
+                        href={Array.isArray(project.github) ? project.github[0] : project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          trackExternalLink('github', project.id);
+                        }}
+                        className="flex-shrink-0 p-2 bg-background border border-border rounded-lg hover:border-primary hover:bg-surface transition-all group/icon"
+                        aria-label="View GitHub"
                       >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 font-mono text-xs text-text-secondary">
-                        +{project.technologies.length - 4}
-                      </span>
+                        <Github size={16} className="text-text-secondary group-hover/icon:text-primary transition-colors" />
+                      </a>
                     )}
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 flex-1">
+                      {project.technologies.slice(0, 4).map((tech: string) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 bg-background border border-border rounded-full font-mono text-xs text-text-secondary group-hover:border-primary/40 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <span className="px-2 py-1 font-mono text-xs text-text-secondary">
+                          +{project.technologies.length - 4}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
