@@ -4,14 +4,14 @@ import './globals.css';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const rajdhani = Rajdhani({ 
+const rajdhani = Rajdhani({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const orbitron = Orbitron({ 
+const orbitron = Orbitron({
   weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-display',
@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   description: 'Software engineer building reliable, scalable systems. Experience in distributed systems, cloud infrastructure, and full-stack development.',
   keywords: ['Software Engineer', 'Full-Stack', 'React', 'TypeScript', 'AWS', 'Azure', '.NET', 'Node.js'],
   authors: [{ name: 'Kartik Jondhalekar' }],
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -56,8 +60,8 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
       suppressHydrationWarning
     >
