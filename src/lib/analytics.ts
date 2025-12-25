@@ -1,15 +1,15 @@
 /**
- * Analytics utility using Plausible Analytics
+ * Analytics utility using Google Analytics (GA4)
  * 
- * Why Plausible?
- * - Privacy-first: No cookies, no personal data collection
- * - Lightweight: <1KB script, minimal performance impact
- * - Static-site compatible: Works with GitHub Pages
- * - Recognized in engineering teams: Modern, ethical analytics
+ * Why Google Analytics?
+ * - Industry standard with comprehensive features
+ * - Free tier with generous limits
+ * - Detailed user behavior insights
+ * - Integration with Google tools
  * 
  * Implementation Strategy:
  * - Events are explicit and intentionally tracked
- * - No automatic tracking beyond page views
+ * - Uses GA4 event model (recommended events + custom)
  * - All events include contextual metadata
  * - Designed to inform iteration, not collect vanity metrics
  */
@@ -17,6 +17,18 @@
 export interface AnalyticsEvent {
   name: string;
   props?: Record<string, string | number | boolean>;
+}
+
+// Declare gtag types
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      targetId: string | Date,
+      config?: Record<string, unknown>
+    ) => void;
+    dataLayer?: unknown[];
+  }
 }
 
 class Analytics {
@@ -39,13 +51,13 @@ class Analytics {
       return;
     }
 
-    if (typeof window !== 'undefined' && (window as Window & { plausible?: unknown }).plausible) {
-      ((window as Window & { plausible?: (event: string, options: { props?: Record<string, string | number | boolean> }) => void }).plausible)?.(eventName, { props });
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, props);
     }
   }
 
   /**
-   * Track page view (automatic with Plausible script)
+   * Track page view (automatic with GA script)
    * Only call this manually for SPA route changes
    */
   trackPageView(path?: string) {
@@ -54,9 +66,9 @@ class Analytics {
       return;
     }
 
-    if (typeof window !== 'undefined' && (window as Window & { plausible?: unknown }).plausible) {
-      ((window as Window & { plausible?: (event: string, options: { props?: { path: string } }) => void }).plausible)?.('pageview', { 
-        props: { path: path || window.location.pathname } 
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_path: path || window.location.pathname,
       });
     }
   }
@@ -96,7 +108,7 @@ export const trackThemeToggle = (theme: 'light' | 'dark') => {
 };
 
 /**
- * HOW TO INTERPRET ANALYTICS
+ * HOW TO INTERPRET GOOGLE ANALYTICS
  * 
  * Key Metrics to Track:
  * 1. Engagement Patterns
@@ -125,7 +137,7 @@ export const trackThemeToggle = (theme: 'light' | 'dark') => {
  * → Action: Make deep-dive CTAs more prominent
  * → Action: Add preview of technical decisions in project card
  * 
- * Insight: "High scroll depth on 'How I Think' section"
+ * Insight: "High time on 'How I Think' section"
  * → Action: Expand this section with more examples
  * → Action: Add similar mindset sections to project deep-dives
  * 
@@ -137,10 +149,10 @@ export const trackThemeToggle = (theme: 'light' | 'dark') => {
  * → Action: Simplify contact CTA
  * → Action: Add availability status or preferred contact method
  * 
- * ETHICS & PERFORMANCE:
- * - Plausible script loads async, no blocking
- * - No cookies, no localStorage, no fingerprinting
- * - All data is aggregated, not user-specific
- * - Users can opt out via browser extensions (Plausible respects Do Not Track)
- * - No impact on Lighthouse scores (tested <1KB, async load)
+ * SETUP INSTRUCTIONS:
+ * 1. Go to https://analytics.google.com
+ * 2. Create a new GA4 property
+ * 3. Get your Measurement ID (starts with G-)
+ * 4. Replace 'G-XXXXXXXXXX' in src/app/layout.tsx with your ID
+ * 5. Deploy and verify data appears in GA dashboard (within 24 hours)
  */

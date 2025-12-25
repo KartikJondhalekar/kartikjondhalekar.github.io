@@ -4,14 +4,14 @@ import './globals.css';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
-const rajdhani = Rajdhani({
+const rajdhani = Rajdhani({ 
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const orbitron = Orbitron({
+const orbitron = Orbitron({ 
   weight: ['400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-display',
@@ -54,19 +54,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}>
+    <html 
+      lang="en" 
+      className={`${rajdhani.variable} ${orbitron.variable} ${firaCode.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        {/* Plausible Analytics - Privacy-first, no cookies */}
+        {/* Google Analytics */}
         {process.env.NODE_ENV === 'production' && (
-          <Script
-            defer
-            data-domain="yourdomain.com"
-            src="https://plausible.io/js/script.js"
-            strategy="afterInteractive"
-          />
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+              `}
+            </Script>
+          </>
         )}
       </head>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning>
         <ThemeProvider>
           {children}
         </ThemeProvider>

@@ -28,7 +28,7 @@ This portfolio is **engineered, not assembled**. Every component, interaction, a
 ### Infrastructure
 - **Hosting**: GitHub Pages
 - **CI/CD**: GitHub Actions
-- **Analytics**: Plausible Analytics (privacy-first, no cookies)
+- **Analytics**: Google Analytics (GA4)
 
 ### Why These Choices?
 
@@ -42,7 +42,7 @@ This portfolio is **engineered, not assembled**. Every component, interaction, a
 
 **Framer Motion 11**: Latest animation library with better performance and tree-shaking
 
-**Plausible Analytics**: Privacy-first, lightweight (<1KB), no cookies, GDPR compliant
+**Google Analytics**: Industry-standard analytics with comprehensive insights, free tier, and integration with Google tools
 
 ## Project Structure
 
@@ -88,7 +88,7 @@ portfolio-site/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/portfolio-site.git
+git clone https://github.com/KartikJondhalekar/kartikjondhalekar.github.io.git
 cd portfolio-site
 
 # Install dependencies
@@ -162,11 +162,34 @@ npm run build
 
 ## Analytics
 
-### Why Plausible?
-- **Privacy-first**: No cookies, no personal data collection
-- **Lightweight**: <1KB script, minimal performance impact
-- **Static-site compatible**: Works perfectly with GitHub Pages
-- **Ethical**: GDPR, CCPA, PECR compliant out of the box
+### Google Analytics (GA4)
+
+This portfolio uses Google Analytics 4 for tracking user engagement and behavior.
+
+### Setup Instructions
+
+1. Go to [Google Analytics](https://analytics.google.com)
+2. Create a new GA4 property:
+   - Click "Admin" → "Create Property"
+   - Enter property details
+   - Choose "Web" as platform
+3. Get your Measurement ID (format: `G-XXXXXXXXXX`)
+4. Update `src/app/layout.tsx` (lines 14-25):
+   ```typescript
+   <Script
+     src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+     strategy="afterInteractive"
+   />
+   <Script id="google-analytics" strategy="afterInteractive">
+     {`
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'G-XXXXXXXXXX');  // Replace with your Measurement ID
+     `}
+   </Script>
+   ```
+5. Deploy and verify data in GA dashboard (appears within 24-48 hours)
 
 ### Events Tracked
 
@@ -183,23 +206,22 @@ npm run build
 - Contact form interactions
 - Email copy-to-clipboard
 - Social link clicks
+- Theme toggle
 
-### Setup Plausible
+### Viewing Analytics
 
-1. Sign up at [plausible.io](https://plausible.io)
-2. Add your domain
-3. Update `src/app/layout.tsx`:
-   ```typescript
-   data-domain="yourdomain.com"
-   ```
+1. Go to Google Analytics dashboard
+2. Navigate to Reports → Engagement → Events
+3. View custom events: `project_opened`, `project_deep_dive_opened`, `contact_interaction`, etc.
+4. Check Realtime reports to see live traffic
+5. Use Explorations for deeper analysis
 
-### Interpreting Analytics
+### Privacy Considerations
 
-See `src/lib/analytics.ts` for detailed guidance on:
-- Which metrics matter
-- Example insights (e.g., "Users read architecture but don't click demos")
-- How to iterate based on data
-- Privacy and performance considerations
+- Google Analytics uses cookies for tracking
+- IP addresses are anonymized by default
+- Users can opt out via browser extensions
+- See `/privacy` page for full privacy policy
 
 ## Design Decisions
 
