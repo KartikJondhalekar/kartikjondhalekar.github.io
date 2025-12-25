@@ -59,7 +59,7 @@ export default function Contact() {
             Get in Touch
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            Let's build something together
+             Let&apos;s build something together
           </h2>
           <p className="text-lg text-text-secondary">
             Recent M.S. in Computer Science graduate actively seeking full-time opportunities in 
