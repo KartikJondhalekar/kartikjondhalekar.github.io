@@ -61,6 +61,8 @@ export interface AdditionalProject {
   summary: string;
   technologies: string[];
   category: string;
+  github?: string | string[] | null;
+  demo?: string | null;
 }
 
 export interface AdditionalProjects {

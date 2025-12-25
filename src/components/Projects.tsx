@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ExternalLink, Github, X, ChevronRight } from 'lucide-react';
 import contentData from '@/data/content.json';
-import type { Project, ContentData } from '@/types/content';
+import type { Project, ContentData, AdditionalProject } from '@/types/content';
 import { trackProjectOpen, trackProjectDeepDive, trackExternalLink, trackSectionView } from '@/lib/analytics';
 
 const categories = [
@@ -74,8 +74,8 @@ export default function Projects() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 rounded-lg font-mono text-sm transition-all ${activeCategory === category.id
-                  ? 'bg-accent text-background'
-                  : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
+                    ? 'bg-accent text-background'
+                    : 'bg-surface border border-border text-text-secondary hover:border-accent hover:text-accent'
                   }`}
               >
                 {category.label}
@@ -210,12 +210,41 @@ export default function Projects() {
               <div>
                 <h4 className="font-display text-lg font-bold mb-4">Additional Enterprise Systems</h4>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {data.additionalProjects.enterprise.map((project) => (
+                  {data.additionalProjects.enterprise.map((project: AdditionalProject) => (
                     <div key={project.id} className="p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors">
                       <h5 className="font-display font-bold mb-2">{project.title}</h5>
                       <p className="text-text-secondary text-sm mb-3 line-clamp-2">{project.summary}</p>
+
+                      {/* GitHub Links */}
+                      {project.github && (
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {Array.isArray(project.github) ? (
+                            project.github.map((link: string, idx: number) => (
+                              <a
+                                key={idx}
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-accent hover:text-primary text-xs font-mono underline"
+                              >
+                                Repo {idx + 1}
+                              </a>
+                            ))
+                          ) : (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent hover:text-primary text-xs font-mono underline"
+                            >
+                              GitHub
+                            </a>
+                          )}
+                        </div>
+                      )}
+
                       <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
+                        {project.technologies.map((tech: string) => (
                           <span
                             key={tech}
                             className="px-2 py-1 bg-background border border-border rounded-full font-mono text-xs text-text-secondary"
@@ -233,12 +262,41 @@ export default function Projects() {
               <div>
                 <h4 className="font-display text-lg font-bold mb-4">Additional Academic Projects</h4>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {data.additionalProjects.academic.map((project) => (
+                  {data.additionalProjects.academic.map((project: AdditionalProject) => (
                     <div key={project.id} className="p-4 bg-surface border border-border rounded-xl hover:border-accent transition-colors">
                       <h5 className="font-display font-bold mb-2">{project.title}</h5>
                       <p className="text-text-secondary text-sm mb-3 line-clamp-2">{project.summary}</p>
+
+                      {/* GitHub Links */}
+                      {project.github && (
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {Array.isArray(project.github) ? (
+                            project.github.map((link: string, idx: number) => (
+                              <a
+                                key={idx}
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-accent hover:text-primary text-xs font-mono underline"
+                              >
+                                Repo {idx + 1}
+                              </a>
+                            ))
+                          ) : (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent hover:text-primary text-xs font-mono underline"
+                            >
+                              GitHub
+                            </a>
+                          )}
+                        </div>
+                      )}
+
                       <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
+                        {project.technologies.map((tech: string) => (
                           <span
                             key={tech}
                             className="px-2 py-1 bg-background border border-border rounded-full font-mono text-xs text-text-secondary"
@@ -311,7 +369,8 @@ export default function Projects() {
                               className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-lg hover:border-accent transition-colors font-mono text-sm"
                             >
                               <Github size={16} />
-                              {(Array.isArray(selectedProject.github) && selectedProject.github.length > 1) ? `Repository ${idx + 1}` : 'View Code'}                            </a>
+                              {Array.isArray(selectedProject.github) && selectedProject.github.length > 1 ? `Repository ${idx + 1}` : 'View Code'}
+                            </a>
                           ))
                         ) : (
                           <a
@@ -346,7 +405,7 @@ export default function Projects() {
                 <div className="mb-8">
                   <h3 className="font-display text-lg font-bold mb-3">Technologies</h3>
                   <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((tech) => (
+                    {selectedProject.technologies.map((tech: string) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-surface border border-border rounded-full font-mono text-xs"
@@ -369,7 +428,7 @@ export default function Projects() {
                 <div className="mb-8">
                   <h3 className="font-display text-lg font-bold mb-3">Constraints</h3>
                   <ul className="space-y-2">
-                    {selectedProject.constraints.map((constraint, idx) => (
+                    {selectedProject.constraints.map((constraint: string, idx: number) => (
                       <li key={idx} className="flex gap-3 text-text-secondary">
                         <span className="text-accent mt-1.5">▪</span>
                         <span>{constraint}</span>
@@ -382,7 +441,7 @@ export default function Projects() {
                 <div className="mb-8">
                   <h3 className="font-display text-lg font-bold mb-4">Key Technical Decisions</h3>
                   <div className="space-y-6">
-                    {selectedProject.decisions.map((decision, idx) => (
+                    {selectedProject.decisions.map((decision, idx: number) => (
                       <div key={idx} className="p-4 bg-surface rounded-lg border border-border">
                         <h4 className="font-mono text-sm font-bold mb-2">{decision.decision}</h4>
                         <p className="text-text-secondary text-sm leading-relaxed">
@@ -402,7 +461,7 @@ export default function Projects() {
                   <div className="p-4 bg-surface rounded-lg border border-border">
                     <h4 className="font-mono text-sm font-bold mb-3">Components</h4>
                     <ul className="space-y-2">
-                      {selectedProject.architecture.components.map((component, idx) => (
+                      {selectedProject.architecture.components.map((component: string, idx: number) => (
                         <li key={idx} className="flex gap-3 text-text-secondary text-sm">
                           <span className="text-accent mt-1">▪</span>
                           <span>{component}</span>
@@ -422,7 +481,7 @@ export default function Projects() {
                 <div className="mb-8">
                   <h3 className="font-display text-lg font-bold mb-3">Outcomes</h3>
                   <ul className="space-y-2">
-                    {selectedProject.outcomes.map((outcome, idx) => (
+                    {selectedProject.outcomes.map((outcome: string, idx: number) => (
                       <li key={idx} className="flex gap-3 text-text-secondary">
                         <span className="text-accent mt-1.5">✓</span>
                         <span>{outcome}</span>
@@ -435,7 +494,7 @@ export default function Projects() {
                 <div>
                   <h3 className="font-display text-lg font-bold mb-3">What I&apos;d Improve Next</h3>
                   <ul className="space-y-2">
-                    {selectedProject.improvements.map((improvement, idx) => (
+                    {selectedProject.improvements.map((improvement: string, idx: number) => (
                       <li key={idx} className="flex gap-3 text-text-secondary">
                         <span className="text-accent mt-1.5">→</span>
                         <span>{improvement}</span>
