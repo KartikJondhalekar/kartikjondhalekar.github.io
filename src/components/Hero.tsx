@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MapPin, Mail, Github, Linkedin } from 'lucide-react';
 import contentData from '@/data/content.json';
 import type { ContentData } from '@/types/content';
 
@@ -126,14 +126,15 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 text-text-secondary mb-12"
         >
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+            <MapPin size={14} className="text-accent" />
             <span className="font-mono text-sm">{profile.location}</span>
           </div>
           <span className="text-border">•</span>
           <a
             href={`mailto:${profile.contact.email}`}
-            className="font-mono text-sm hover:text-accent transition-colors"
+            className="flex items-center gap-2 font-mono text-sm hover:text-accent transition-colors"
           >
+            <Mail size={14} className="text-accent" />
             {profile.contact.email}
           </a>
           <span className="text-border">•</span>
@@ -141,19 +142,21 @@ export default function Hero() {
             href={profile.contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm hover:text-accent transition-colors"
+            className="flex items-center gap-2 font-mono text-sm hover:text-accent transition-colors"
           >
+            <Github size={14} className="text-accent" />
             GitHub
-          </a><span className="text-border">•</span>
+          </a>
+          <span className="text-border">•</span>
           <a
             href={profile.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-sm hover:text-accent transition-colors"
+            className="flex items-center gap-2 font-mono text-sm hover:text-accent transition-colors"
           >
+            <Linkedin size={14} className="text-accent" />
             LinkedIn
           </a>
-
         </motion.div>
 
         {/* CTA Buttons */}
