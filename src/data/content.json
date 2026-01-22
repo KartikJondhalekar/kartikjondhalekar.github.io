@@ -745,10 +745,10 @@
       "period": "Jun 2019 – Aug 2019",
       "location": "Mumbai, India",
       "impact": [
-        "Built Python data pipelines with Pandas and NumPy to preprocess 10+ datasets, cutting manual preparation time by 30%",
-        "Standardized analytics and visual outputs using Matplotlib across 5+ assignments, improving result consistency and review clarity",
-        "Refactored scripts into modular functions, reducing code complexity by 25% and improving repeat-run reliability",
-        "Validated metrics and visuals through edge-case checks, lowering data inconsistencies by 20%"
+        "Built a Django-based internal analytics portal by integrating Python (Pandas, NumPy) preprocessing into backend views and APIs, reducing manual dataset preparation by 30%",
+        "Implemented dataset ingestion and validation logic (null handling, type drift, outlier checks) within Django services, lowering data inconsistencies by 20% across recurring runs",
+        "Standardized reporting by generating Matplotlib charts server-side and serving them through the application, improving review consistency across 5+ deliverables",
+        "Refactored analytics logic into reusable Python modules and wired them into Django management commands, reducing code complexity by 25% and improving repeat-run reliability"
       ]
     }
   ],
