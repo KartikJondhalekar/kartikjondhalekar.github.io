@@ -117,7 +117,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto font-mono"
         >
-          Frontend • Full-Stack • Cloud
+          AI/ML • Full-Stack • Cloud
         </motion.p>
 
         {/* Location & Quick Contact */}
@@ -138,6 +138,14 @@ export default function Hero() {
           </a>
           <span className="text-border">•</span>
           <a
+            href={profile.contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-sm hover:text-accent transition-colors"
+          >
+            GitHub
+          </a><span className="text-border">•</span>
+          <a
             href={profile.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -145,6 +153,7 @@ export default function Hero() {
           >
             LinkedIn
           </a>
+
         </motion.div>
 
         {/* CTA Buttons */}

@@ -6,7 +6,7 @@
     "tagline": "Building responsive UIs and scalable backend systems that users feel.",
     "bio": "Full-Stack Engineer with experience building enterprise systems at Chevron and modern web applications using React, Angular, TypeScript, Node, and .NET. I enjoy designing clean UI interactions, scalable backend APIs, and shipping features that users feel—not just infrastructure that runs. M.S. in Computer Science @ Northeastern (3.85 GPA), seeking full-time Full-Stack and Front-End roles.",
     "contact": {
-      "email": "jondhalekar.k@northeastern.edu",
+      "email": "kj.jondhalekar@gmail.com",
       "phone": "(857) 294-5334",
       "github": "https://github.com/KartikJondhalekar",
       "linkedin": "https://www.linkedin.com/in/kartik-jondhalekar/"
@@ -737,6 +737,18 @@
         "Assisted with test execution and debugging across multiple enterprise systems, strengthening foundations in object-oriented programming and secure coding practices",
         "Collaborated with senior engineers on production support, gaining hands-on experience in enterprise software maintenance",
         "Participated in code reviews and design discussions, building knowledge in maintainable design patterns and software architecture"
+      ]
+    },
+    {
+      "company": "TakenMind Technologies",
+      "role": "Software Engineer Intern",
+      "period": "Jun 2019 – Aug 2019",
+      "location": "Mumbai, India",
+      "impact": [
+        "Built Python data pipelines with Pandas and NumPy to preprocess 10+ datasets, cutting manual preparation time by 30%",
+        "Standardized analytics and visual outputs using Matplotlib across 5+ assignments, improving result consistency and review clarity",
+        "Refactored scripts into modular functions, reducing code complexity by 25% and improving repeat-run reliability",
+        "Validated metrics and visuals through edge-case checks, lowering data inconsistencies by 20%"
       ]
     }
   ],
