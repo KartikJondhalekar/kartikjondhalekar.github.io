@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  /* Neon Slate Theme - Dark Mode (Default) */
-  --color-bg-main: #020617;
-  --color-bg-card: #0F172A;
-  --color-primary: #38BDF8;
-  --color-secondary: #6366F1;
-  --color-text-main: #E5E7EB;
-  --color-text-muted: #94A3B8;
-  --color-accent: #22D3EE;
-  --color-border: #1E293B;
-  --color-glow: #38BDF8;
+  /* Warm Ember Theme - Dark Mode (Default) */
+  --color-bg-main: #1C1410;
+  --color-bg-card: #2A1F18;
+  --color-primary: #F59E0B;
+  --color-secondary: #E11D48;
+  --color-text-main: #F5E9DD;
+  --color-text-muted: #C4A98D;
+  --color-accent: #FB923C;
+  --color-border: #3D2E22;
+  --color-glow: #F59E0B;
 
   /* Mapped to CSS variables for consistency */
   --color-background: var(--color-bg-main);
@@ -33,15 +33,15 @@
 
 /* Light Mode - Using class instead of data-theme attribute */
 html.light {
-  --color-bg-main: #F8FAFC;
+  --color-bg-main: #FDF6EE;
   --color-bg-card: #FFFFFF;
-  --color-primary: #0284C7;
-  --color-secondary: #4F46E5;
-  --color-text-main: #0F172A;
-  --color-text-muted: #475569;
-  --color-accent: #0891B2;
-  --color-border: #E2E8F0;
-  --color-glow: #0284C7;
+  --color-primary: #D97706;
+  --color-secondary: #BE123C;
+  --color-text-main: #2A1F18;
+  --color-text-muted: #78614E;
+  --color-accent: #EA580C;
+  --color-border: #EAD9C4;
+  --color-glow: #D97706;
 
   --color-background: var(--color-bg-main);
   --color-surface: var(--color-bg-card);
@@ -52,15 +52,15 @@ html.light {
 /* Also support prefers-color-scheme for browsers without JS */
 @media (prefers-color-scheme: light) {
   :root:not(.dark) {
-    --color-bg-main: #F8FAFC;
+    --color-bg-main: #FDF6EE;
     --color-bg-card: #FFFFFF;
-    --color-primary: #0284C7;
-    --color-secondary: #4F46E5;
-    --color-text-main: #0F172A;
-    --color-text-muted: #475569;
-    --color-accent: #0891B2;
-    --color-border: #E2E8F0;
-    --color-glow: #0284C7;
+    --color-primary: #D97706;
+    --color-secondary: #BE123C;
+    --color-text-main: #2A1F18;
+    --color-text-muted: #78614E;
+    --color-accent: #EA580C;
+    --color-border: #EAD9C4;
+    --color-glow: #D97706;
 
     --color-background: var(--color-bg-main);
     --color-surface: var(--color-bg-card);
@@ -200,16 +200,16 @@ code {
 }
 
 .glass-effect {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(42, 31, 24, 0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
 }
 
 html.light .glass-effect {
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(2, 132, 199, 0.2);
-  box-shadow: 0 0 20px rgba(2, 132, 199, 0.05);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.05);
 }
 
 .neon-glow {

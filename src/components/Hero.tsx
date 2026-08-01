@@ -35,18 +35,6 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(var(--color-text) 1px, transparent 1px),
-                            linear-gradient(90deg, var(--color-text) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
       {/* Animated Gradient Orb */}
       <motion.div
         animate={{
@@ -60,7 +48,7 @@ export default function Hero() {
         }}
         className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #38BDF8, #22D3EE)',
+          background: 'radial-gradient(circle, #F59E0B, #FB923C)',
           mixBlendMode: 'screen',
         }}
       />
@@ -78,7 +66,7 @@ export default function Hero() {
         }}
         className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full filter blur-3xl"
         style={{
-          background: 'radial-gradient(circle, #6366F1, #38BDF8)',
+          background: 'radial-gradient(circle, #E11D48, #F59E0B)',
           mixBlendMode: 'screen',
         }}
       />

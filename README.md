@@ -6,7 +6,7 @@ A technical portfolio website that demonstrates engineering decision-making, not
 
 This portfolio is **engineered, not assembled**. Every component, interaction, and content structure is intentional:
 
-- **Neon Slate Theme**: Clean, modern aesthetic with neon blue (#38BDF8) and indigo (#6366F1) accents on dark slate backgrounds
+- **Warm Ember Theme**: Clean, modern aesthetic with amber (#F59E0B) and rose (#E11D48) accents on dark warm backgrounds
 - **Light/Dark Mode**: Toggle between themes with persistent preference storage
 - **Depth over Breadth**: Fewer projects, deeper insight into technical decisions and trade-offs
 - **Decision Documentation**: Every project includes problem context, constraints, key decisions, and future improvements
